@@ -113,8 +113,6 @@ nav ul li:hover {
   width: 100%;
   max-width: 935px;
 
-  overflow-y: auto;
-
   display: flex;
   justify-content: space-between;
 }
@@ -305,6 +303,12 @@ footer {
   gap: 14px;
 }
 
+.actions-container svg:hover,
+.save-container svg:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .post-details {
   margin-top: 12px;
   display: flex;
@@ -331,7 +335,14 @@ footer img {
 
 /* SIDEBAR */
 .sidebar {
+  margin-left: 30px;
   width: 290px;
+  height: fit-content;
+
+  position: sticky;
+  position: -webkit-sticky;
+  top: 88px;
+  /* right: 0px; */
 }
 
 .sidebar-header {
@@ -482,6 +493,10 @@ footer img {
   color: #c7c7c7;
 }
 
+.footer ul li a:hover {
+  filter: brightness(0.8);
+}
+
 .footer ul li:not(:last-child):after {
   content: '•';
 
@@ -489,7 +504,7 @@ footer img {
   line-height: 13px;
   font-weight: 400;
 
-  margin: 0 3px 0 0;
+  margin: 0 3px 0 3px;
 
   color: #c7c7c7;
 }

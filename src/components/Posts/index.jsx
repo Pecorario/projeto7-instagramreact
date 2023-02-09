@@ -1,3 +1,11 @@
+import {
+  IoEllipsisHorizontalSharp,
+  IoChatbubbleOutline,
+  IoHeartOutline,
+  IoPaperPlaneOutline,
+  IoBookmarkOutline
+} from 'react-icons/io5';
+
 function Post({
   fromProfilePicture,
   from,
@@ -6,7 +14,7 @@ function Post({
   likedByProfilePicture
 }) {
   return (
-    <article class="post">
+    <article class="post" data-test="post">
       <header>
         <div class="post-info">
           <img
@@ -16,23 +24,27 @@ function Post({
           <p>{from}</p>
         </div>
         <button>
-          <ion-icon name="ellipsis-horizontal" class="post-icon"></ion-icon>
+          <IoEllipsisHorizontalSharp class="post-icon" />
         </button>
       </header>
 
       <div class="post-img">
-        <img src={`assets/images/${urlPostImage}`} alt={`Post de ${from}`} />
+        <img
+          src={`assets/images/${urlPostImage}`}
+          alt={`Post de ${from}`}
+          data-test="post-image"
+        />
       </div>
 
       <footer>
         <div class="buttons-post">
           <div class="actions-container">
-            <ion-icon name="heart-outline" class="post-icon"></ion-icon>
-            <ion-icon name="chatbubble-outline" class="post-icon"></ion-icon>
-            <ion-icon name="paper-plane-outline" class="post-icon"></ion-icon>
+            <IoHeartOutline class="post-icon" data-test="like-post" />
+            <IoChatbubbleOutline class="post-icon" />
+            <IoPaperPlaneOutline class="post-icon" />
           </div>
           <div class="save-container">
-            <ion-icon name="bookmark-outline" class="post-icon"></ion-icon>
+            <IoBookmarkOutline class="post-icon" data-test="save-post" />
           </div>
         </div>
         <div class="post-details">
@@ -42,7 +54,9 @@ function Post({
           />
           <p>
             Curtido por <strong>{likedBy}</strong> e
-            <strong>outras 101.523 pessoas</strong>
+            <strong>
+              &nbsp;outras <span data-test="likes-number">101.523</span> pessoas
+            </strong>
           </p>
         </div>
       </footer>
