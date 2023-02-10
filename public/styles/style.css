@@ -200,7 +200,7 @@ nav ul li:hover {
 
   padding: 5px;
 
-  background-image: url('assets/stories_background.jpg');
+  background-image: url('../assets/images/stories_background.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -276,6 +276,10 @@ article header button {
 
 .post-icon {
   font-size: 20px;
+}
+
+.post-icon.liked {
+  color: red;
 }
 
 .post-img {

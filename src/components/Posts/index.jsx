@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import {
   IoEllipsisHorizontalSharp,
   IoChatbubbleOutline,
+  IoHeart,
   IoHeartOutline,
   IoPaperPlaneOutline,
-  IoBookmarkOutline
+  IoBookmarkOutline,
+  IoBookmark
 } from 'react-icons/io5';
 
 function Post({
@@ -13,6 +16,31 @@ function Post({
   likedBy,
   likedByProfilePicture
 }) {
+  const [isSaved, setIsSaved] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [likes, setLiked] = useState(101523);
+
+  function handleClickSaveIcon() {
+    setIsSaved(!isSaved);
+  }
+
+  function handleClickLikeIcon() {
+    if (!isLiked) {
+      setLiked(likes + 1);
+    } else {
+      setLiked(likes - 1);
+    }
+    setIsLiked(!isLiked);
+  }
+
+  function handleLikePost() {
+    if (!isLiked) {
+      setLiked(likes + 1);
+    }
+
+    setIsLiked(true);
+  }
+
   return (
     <article class="post" data-test="post">
       <header>
@@ -33,18 +61,44 @@ function Post({
           src={`assets/images/${urlPostImage}`}
           alt={`Post de ${from}`}
           data-test="post-image"
+          onDoubleClick={handleLikePost}
         />
       </div>
 
       <footer>
         <div class="buttons-post">
           <div class="actions-container">
-            <IoHeartOutline class="post-icon" data-test="like-post" />
+            {isLiked ? (
+              <IoHeart
+                class="post-icon liked"
+                data-test="like-post"
+                onClick={handleClickLikeIcon}
+              />
+            ) : (
+              <IoHeartOutline
+                class="post-icon"
+                data-test="like-post"
+                onClick={handleClickLikeIcon}
+              />
+            )}
+
             <IoChatbubbleOutline class="post-icon" />
             <IoPaperPlaneOutline class="post-icon" />
           </div>
           <div class="save-container">
-            <IoBookmarkOutline class="post-icon" data-test="save-post" />
+            {isSaved ? (
+              <IoBookmark
+                class="post-icon"
+                data-test="save-post"
+                onClick={handleClickSaveIcon}
+              />
+            ) : (
+              <IoBookmarkOutline
+                class="post-icon"
+                data-test="save-post"
+                onClick={handleClickSaveIcon}
+              />
+            )}
           </div>
         </div>
         <div class="post-details">
@@ -55,7 +109,11 @@ function Post({
           <p>
             Curtido por <strong>{likedBy}</strong> e
             <strong>
-              &nbsp;outras <span data-test="likes-number">101.523</span> pessoas
+              &nbsp;outras{' '}
+              <span data-test="likes-number">
+                {likes.toLocaleString('pt-br')}
+              </span>{' '}
+              pessoas
             </strong>
           </p>
         </div>
