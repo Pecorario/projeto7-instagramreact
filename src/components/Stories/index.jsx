@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 import { IoChevronForwardCircleSharp } from 'react-icons/io5';
 
 function Story({ name, url }) {
@@ -17,9 +19,15 @@ function Story({ name, url }) {
 }
 
 export default function Stories({ accounts }) {
+  const refStories = useRef(null);
+
+  const handleScroll = scrollTo => {
+    refStories.current.scrollLeft += scrollTo;
+  };
+
   return (
-    <div class="stories">
-      <button>
+    <div class="stories" ref={refStories}>
+      <button onClick={() => handleScroll(575)}>
         <IoChevronForwardCircleSharp class="story-button" />
       </button>
 
