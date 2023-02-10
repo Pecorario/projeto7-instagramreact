@@ -19,6 +19,7 @@ function Post({
   const [isSaved, setIsSaved] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [likes, setLiked] = useState(101523);
+  const [wasLikedByPicture, setWasLikedByPicture] = useState(false);
 
   function handleClickSaveIcon() {
     setIsSaved(!isSaved);
@@ -33,11 +34,24 @@ function Post({
     setIsLiked(!isLiked);
   }
 
+  function addAnimation() {
+    setWasLikedByPicture(true);
+  }
+
+  function finishAnimation() {
+    setTimeout(() => {
+      setWasLikedByPicture(false);
+    }, 800);
+  }
+
   function handleLikePost() {
     if (!isLiked) {
       setLiked(likes + 1);
       setIsLiked(true);
     }
+
+    addAnimation();
+    finishAnimation();
   }
 
   return (
@@ -59,9 +73,10 @@ function Post({
         <img
           src={`assets/images/${urlPostImage}`}
           alt={`Post de ${from}`}
-          onClick={handleLikePost}
+          onDoubleClick={handleLikePost}
           data-test="post-image"
         />
+        {wasLikedByPicture && <IoHeart class="icon-animate" />}
       </div>
 
       <footer>
