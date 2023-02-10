@@ -386,7 +386,11 @@ footer img {
 }
 
 .sidebar-header img {
-  height: 100%;
+  height: 56px;
+  width: 56px;
+
+  object-fit: cover;
+
   cursor: pointer;
 
   border-radius: 50%;
