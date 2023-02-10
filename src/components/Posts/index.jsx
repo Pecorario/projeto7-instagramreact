@@ -67,19 +67,13 @@ function Post({
       <footer>
         <div class="buttons-post">
           <div class="actions-container">
-            {isLiked ? (
-              <IoHeart
-                class="post-icon liked"
-                data-test="like-post"
-                onClick={handleClickLikeIcon}
-              />
-            ) : (
-              <IoHeartOutline
-                class="post-icon"
-                data-test="like-post"
-                onClick={handleClickLikeIcon}
-              />
-            )}
+            <div onClick={handleClickLikeIcon} data-test="like-post">
+              {isLiked ? (
+                <IoHeart class="post-icon liked" />
+              ) : (
+                <IoHeartOutline class="post-icon" />
+              )}
+            </div>
 
             <IoChatbubbleOutline class="post-icon" />
             <IoPaperPlaneOutline class="post-icon" />
