@@ -123,7 +123,7 @@ export default function Body() {
   ];
 
   return (
-    <div class="content">
+    <div className="content">
       <main>
         <Stories accounts={accounts} />
         <Posts data={dataPosts} />

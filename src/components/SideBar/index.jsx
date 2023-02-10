@@ -80,7 +80,7 @@ export default function SideBar() {
   ];
 
   return (
-    <aside class="sidebar">
+    <aside className="sidebar">
       <User
         username={username}
         urlPicture={urlPicture}
@@ -90,10 +90,10 @@ export default function SideBar() {
 
       <Suggestions recommendations={recommendations} />
 
-      <div class="footer">
+      <div className="footer">
         <ul>
-          {footerList.map(item => (
-            <ItemList name={item} />
+          {footerList.map((item, idx) => (
+            <ItemList key={idx} name={item} />
           ))}
         </ul>
 

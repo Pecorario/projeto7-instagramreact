@@ -55,9 +55,9 @@ function Post({
   }
 
   return (
-    <article class="post" data-test="post">
+    <article className="post" data-test="post">
       <header>
-        <div class="post-info">
+        <div className="post-info">
           <img
             src={`assets/images/${fromProfilePicture}`}
             alt={`Foto de perfil de ${from}`}
@@ -65,51 +65,51 @@ function Post({
           <p>{from}</p>
         </div>
         <button>
-          <IoEllipsisHorizontalSharp class="post-icon" />
+          <IoEllipsisHorizontalSharp className="post-icon" />
         </button>
       </header>
 
-      <div class="post-img">
+      <div className="post-img">
         <img
           src={`assets/images/${urlPostImage}`}
           alt={`Post de ${from}`}
           onDoubleClick={handleLikePost}
           data-test="post-image"
         />
-        {wasLikedByPicture && <IoHeart class="icon-animate" />}
+        {wasLikedByPicture && <IoHeart className="icon-animate" />}
       </div>
 
       <footer>
-        <div class="buttons-post">
-          <div class="actions-container">
+        <div className="buttons-post">
+          <div className="actions-container">
             <div onClick={handleClickLikeIcon} data-test="like-post">
               {isLiked ? (
-                <IoHeart class="post-icon liked" />
+                <IoHeart className="post-icon liked" />
               ) : (
-                <IoHeartOutline class="post-icon" />
+                <IoHeartOutline className="post-icon" />
               )}
             </div>
 
-            <IoChatbubbleOutline class="post-icon" />
-            <IoPaperPlaneOutline class="post-icon" />
+            <IoChatbubbleOutline className="post-icon" />
+            <IoPaperPlaneOutline className="post-icon" />
           </div>
-          <div class="save-container">
+          <div className="save-container">
             {isSaved ? (
               <IoBookmark
-                class="post-icon"
+                className="post-icon"
                 data-test="save-post"
                 onClick={handleClickSaveIcon}
               />
             ) : (
               <IoBookmarkOutline
-                class="post-icon"
+                className="post-icon"
                 data-test="save-post"
                 onClick={handleClickSaveIcon}
               />
             )}
           </div>
         </div>
-        <div class="post-details">
+        <div className="post-details">
           <img
             src={`assets/images/${likedByProfilePicture}`}
             alt={`Foto de perfil de ${likedBy}`}
@@ -132,9 +132,10 @@ function Post({
 
 export default function Posts({ data }) {
   return (
-    <div class="feed">
-      {data.map(item => (
+    <div className="feed">
+      {data.map((item, idx) => (
         <Post
+          key={idx}
           fromProfilePicture={item.fromProfilePicture}
           from={item.from}
           urlPostImage={item.urlPostImage}

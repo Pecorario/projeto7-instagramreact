@@ -5,12 +5,12 @@ import { IoChevronForwardCircleSharp } from 'react-icons/io5';
 function Story({ name, url }) {
   return (
     <a
-      class="story-container"
+      className="story-container"
       href={`https://www.instagram.com/${name}/`}
       target="_blank"
       rel="noreferrer"
     >
-      <div class="story-img">
+      <div className="story-img">
         <img src={`assets/images/${url}`} alt={`Foto de perfil de ${name}`} />
       </div>
       <p>{name}</p>
@@ -26,13 +26,13 @@ export default function Stories({ accounts }) {
   };
 
   return (
-    <div class="stories" ref={refStories}>
+    <div className="stories" ref={refStories}>
       <button onClick={() => handleScroll(575)}>
-        <IoChevronForwardCircleSharp class="story-button" />
+        <IoChevronForwardCircleSharp className="story-button" />
       </button>
 
-      {accounts.map(account => (
-        <Story name={account.name} url={account.profilePicture} />
+      {accounts.map((account, idx) => (
+        <Story key={idx} name={account.name} url={account.profilePicture} />
       ))}
     </div>
   );

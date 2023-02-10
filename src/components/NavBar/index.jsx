@@ -8,39 +8,39 @@ import { IoLogoInstagram } from 'react-icons/io';
 
 export default function NavBar() {
   return (
-    <header class="header-principal">
-      <div class="header-content">
-        <div class="logo-container">
-          <IoLogoInstagram class="logo-instagram" />
-          <div class="divider-column"></div>
+    <header className="header-principal">
+      <div className="header-content">
+        <div className="logo-container">
+          <IoLogoInstagram className="logo-instagram" />
+          <div className="divider-column"></div>
           <img src="assets/logo.png" alt="" />
-          <a href="/" class="mobile-message">
-            <IoPaperPlaneOutline class="nav-icon" />
+          <a href="/" className="mobile-message">
+            <IoPaperPlaneOutline className="nav-icon" />
           </a>
         </div>
 
         <input type="text" placeholder="Pesquisar" />
 
-        <nav class="buttons-container">
+        <nav className="buttons-container">
           <ul>
             <li>
               <a href="/">
-                <IoPaperPlaneOutline class="nav-icon" />
+                <IoPaperPlaneOutline className="nav-icon" />
               </a>
             </li>
             <li>
               <a href="/">
-                <IoCompassOutline class="nav-icon" />
+                <IoCompassOutline className="nav-icon" />
               </a>
             </li>
             <li>
               <a href="/">
-                <IoHeartOutline class="nav-icon" />
+                <IoHeartOutline className="nav-icon" />
               </a>
             </li>
             <li>
               <a href="/">
-                <IoPersonOutline class="nav-icon" />
+                <IoPersonOutline className="nav-icon" />
               </a>
             </li>
           </ul>

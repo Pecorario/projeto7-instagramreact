@@ -7,14 +7,14 @@ export default function User({
   handleChangeName
 }) {
   return (
-    <div class="sidebar-header">
+    <div className="sidebar-header">
       <img
         src={urlPicture}
         alt={`Foto de perfil de ${username}`}
         onClick={handleChangeProfilePicture}
         data-test="profile-image"
       />
-      <div class="user-info">
+      <div className="user-info">
         <h2 data-test="name">{username}</h2>
         <RiPencilFill onClick={handleChangeName} data-test="edit-name" />
       </div>

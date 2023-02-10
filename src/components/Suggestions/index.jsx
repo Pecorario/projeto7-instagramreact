@@ -1,14 +1,14 @@
 function Suggestion({ name, text, profilePicture }) {
   return (
-    <div class="suggestion">
-      <div class="suggestion-user">
+    <div className="suggestion">
+      <div className="suggestion-user">
         <img
           src={`assets/images/${profilePicture}`}
           alt={`Foto de perfil de ${name}`}
         />
-        <div class="suggestion-info">
+        <div className="suggestion-info">
           <p>{name}</p>
-          <p class="info">{text}</p>
+          <p className="info">{text}</p>
         </div>
       </div>
       <button>Seguir</button>
@@ -18,15 +18,16 @@ function Suggestion({ name, text, profilePicture }) {
 
 export default function Suggestions({ recommendations }) {
   return (
-    <div class="sidebar-content">
-      <div class="suggestions-bar">
+    <div className="sidebar-content">
+      <div className="suggestions-bar">
         <p>Sugestões para você</p>
         <button>Ver tudo</button>
       </div>
 
-      <div class="suggestions-container">
-        {recommendations.map(item => (
+      <div className="suggestions-container">
+        {recommendations.map((item, idx) => (
           <Suggestion
+            key={idx}
             name={item.name}
             text={item.text}
             profilePicture={item.profilePicture}
