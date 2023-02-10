@@ -60,8 +60,8 @@ function Post({
         <img
           src={`assets/images/${urlPostImage}`}
           alt={`Post de ${from}`}
-          data-test="post-image"
           onDoubleClick={handleLikePost}
+          data-test="post-image"
         />
       </div>
 
