@@ -36,9 +36,8 @@ function Post({
   function handleLikePost() {
     if (!isLiked) {
       setLiked(likes + 1);
+      setIsLiked(true);
     }
-
-    setIsLiked(true);
   }
 
   return (
