@@ -1,7 +1,7 @@
 {
   "name": "projeto7-instragramreact",
   "version": "0.1.0",
-  "homepage": "https://pecorario.github.io/projeto7-instragramreact",
+  "homepage": "https://pecorario.github.io/projeto7-instagramreact/",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
